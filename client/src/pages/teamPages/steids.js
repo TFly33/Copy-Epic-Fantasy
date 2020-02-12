@@ -53,7 +53,6 @@ class steids extends React.Component {
                 var sabresWins;
                 var sabresOTLS;
                 var sabresTotal;
-                var allNHL;
 
                 // Here is the panthers for loop. 
                 for (var i = 0; i < centralResults.length; i++) {
@@ -80,7 +79,7 @@ class steids extends React.Component {
                 console.log(panthersTotal)
 
                 // Here is the loop for the caps
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // caps
                     if (metroResults[i].team.id === 15) {
@@ -100,9 +99,7 @@ class steids extends React.Component {
                 sabresTotal = (sabresWins * 2) + sabresOTLS;
                 console.log(sabresTotal);
 
-                var allNHL = capsTotal + sabresTotal + panthersTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: capsTotal + sabresTotal + panthersTotal });
                 this.setState({ caps: capsTotal });
                 this.setState({ sabres: sabresTotal });
                 this.setState({ panthers: panthersTotal });
@@ -124,7 +121,7 @@ class steids extends React.Component {
 
                 // running the for loop here. 
                 var forLoopArray = res.data.api.standings[0]
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 42) {
                         arsenalWin = forLoopArray[i].all.win
@@ -186,7 +183,7 @@ class steids extends React.Component {
 
                 var steidsPoints = 0;
 
-                for (var i = 0; i < steidsDoubledScores.length; i++) {
+                for (let i = 0; i < steidsDoubledScores.length; i++) {
                     steidsPoints += steidsDoubledScores[i];
                 }
                 // console.log(steidsPoints);

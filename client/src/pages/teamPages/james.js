@@ -53,10 +53,9 @@ class james extends React.Component {
                 var wildWins;
                 var wildOTLS;
                 var wildTotal;
-                var allNHL;
 
                 // Here is the flames loop. 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
                     // flames
                     if (pacificResults[i].team.id === 20) {
                         flamesWins = pacificResults[i].leagueRecord.wins;
@@ -72,7 +71,7 @@ class james extends React.Component {
                 console.log(flamesTotal);
 
                 // Here is the loop for the pens
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // pens
                     if (metroResults[i].team.id === 5) {
@@ -84,7 +83,7 @@ class james extends React.Component {
                     }
                 }
 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
 
                     // wild
                     if (centralResults[i].team.id === 30) {
@@ -104,9 +103,7 @@ class james extends React.Component {
                 wildTotal = (wildWins * 2) + wildOTLS;
                 console.log(wildTotal);
 
-                var allNHL = flamesTotal + pensTotal + wildTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: flamesTotal + pensTotal + wildTotal });
                 this.setState({ flames: flamesTotal });
                 this.setState({ pens: pensTotal });
                 this.setState({ wild: wildTotal });
@@ -130,7 +127,7 @@ class james extends React.Component {
                 var forLoopArray = res.data.api.standings[0];
                 console.log(forLoopArray);
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 34) {
                         newcastleWin = forLoopArray[i].all.win
@@ -191,7 +188,7 @@ class james extends React.Component {
 
                 var JamesPoints = 0;
 
-                for (var i = 0; i < JamesDoubledScores.length; i++) {
+                for (let i = 0; i < JamesDoubledScores.length; i++) {
                     JamesPoints += JamesDoubledScores[i];
                 }
                 console.log(JamesPoints);

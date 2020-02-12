@@ -55,7 +55,6 @@ class tommy extends React.Component {
                 var canucksWins;
                 var canucksOTLS;
                 var canucksTotal;
-                var totalNHL;
 
                 // Here is the Blackhawks for loop. 
                 for (var i = 0; i < centralResults.length; i++) {
@@ -73,7 +72,7 @@ class tommy extends React.Component {
                 console.log(blackhawksTotal)
 
                 // Here is the loop for the Canucks and Knights, who are in the same division. 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
 
                     // Knights
                     if (pacificResults[i].team.id === 54) {

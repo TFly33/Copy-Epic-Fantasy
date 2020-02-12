@@ -54,10 +54,9 @@ class ben extends React.Component {
                 var flyersWins;
                 var flyersOTLS;
                 var flyersTotal;
-                var allNHL;
 
                 // Here is the leafs loop. 
-                for (var i = 0; i < atlanticResults.length; i++) {
+                for (let i = 0; i < atlanticResults.length; i++) {
                     // leafs
                     if (atlanticResults[i].team.id === 10) {
                         leafsWins = atlanticResults[i].leagueRecord.wins;
@@ -84,7 +83,7 @@ class ben extends React.Component {
                     }
                 }
 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
 
                     // avalanche
                     if (centralResults[i].team.id === 21) {
@@ -104,9 +103,7 @@ class ben extends React.Component {
                 flyersTotal = (flyersWins * 2) + flyersOTLS;
                 console.log(flyersTotal);
 
-                var allNHL = leafsTotal + avalancheTotal + flyersTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: leafsTotal + avalancheTotal + flyersTotal });
                 this.setState({ leafs: leafsTotal });
                 this.setState({ avalanche: avalancheTotal });
                 this.setState({ flyers: flyersTotal });
@@ -130,7 +127,7 @@ class ben extends React.Component {
                var forLoopArray = res.data.api.standings[0];
                console.log(forLoopArray);
 
-               for (var i = 0; i < forLoopArray.length; i++) {
+               for (let i = 0; i < forLoopArray.length; i++) {
 
                    if (forLoopArray[i].team_id === 47) {
                        tottenhamWin = forLoopArray[i].all.win
@@ -192,7 +189,7 @@ class ben extends React.Component {
 
                 var benPoints = 0;
 
-                for (var i = 0; i < benDoubledScores.length; i++) {
+                for (let i = 0; i < benDoubledScores.length; i++) {
                     benPoints += benDoubledScores[i];
                 }
                 console.log(benPoints);

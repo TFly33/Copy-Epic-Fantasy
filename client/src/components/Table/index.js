@@ -1020,11 +1020,11 @@ class Table extends Component {
 
                 // Patrick EPL here
                 // running the for loop here. 
-                var forLoopArray = res.data.api.standings[0]
+                // var forLoopArray = res.data.api.standings[0]
                 
                 console.log (forLoopArray)
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 50) {
                         manCityWin = forLoopArray[i].all.win
@@ -1061,10 +1061,10 @@ class Table extends Component {
                 
                 //  James EPL here 
                  // running the for loop here. 
-                 var forLoopArray = res.data.api.standings[0];
+                //  var forLoopArray = res.data.api.standings[0];
                  console.log(forLoopArray);
  
-                 for (var i = 0; i < forLoopArray.length; i++) {
+                 for (let i = 0; i < forLoopArray.length; i++) {
  
                      if (forLoopArray[i].team_id === 34) {
                          newcastleWin = forLoopArray[i].all.win
@@ -1099,10 +1099,10 @@ class Table extends Component {
                 var norwichTie;
 
                 // running the for loop here. 
-                var forLoopArray = res.data.api.standings[0];
+                // var forLoopArray = res.data.api.standings[0];
                 console.log(forLoopArray);
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 46) {
                         leicesterWin = forLoopArray[i].all.win
@@ -1138,10 +1138,10 @@ class Table extends Component {
                var burnleyTie;
 
                // running the for loop here. 
-               var forLoopArray = res.data.api.standings[0];
+            //    var forLoopArray = res.data.api.standings[0];
                console.log(forLoopArray);
 
-               for (var i = 0; i < forLoopArray.length; i++) {
+               for (let i = 0; i < forLoopArray.length; i++) {
 
                    if (forLoopArray[i].team_id === 62) {
                        sheffieldWin = forLoopArray[i].all.win
@@ -1176,10 +1176,10 @@ class Table extends Component {
                 var westhamTie;
 
                 // running the for loop here. 
-                var forLoopArray = res.data.api.standings[0];
+                // var forLoopArray = res.data.api.standings[0];
                 console.log(forLoopArray);
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 33) {
                         manuWin = forLoopArray[i].all.win
@@ -1214,10 +1214,10 @@ class Table extends Component {
                var southhamptonTie;
 
                // running the for loop here. 
-               var forLoopArray = res.data.api.standings[0];
+            //    var forLoopArray = res.data.api.standings[0];
                console.log(forLoopArray);
 
-               for (var i = 0; i < forLoopArray.length; i++) {
+               for (let i = 0; i < forLoopArray.length; i++) {
 
                    if (forLoopArray[i].team_id === 45) {
                        evertonWin = forLoopArray[i].all.win
@@ -1252,10 +1252,10 @@ class Table extends Component {
                var astonTie;
 
                // running the for loop here. 
-               var forLoopArray = res.data.api.standings[0];
+            //    var forLoopArray = res.data.api.standings[0];
                console.log(forLoopArray);
 
-               for (var i = 0; i < forLoopArray.length; i++) {
+               for (let i = 0; i < forLoopArray.length; i++) {
 
                    if (forLoopArray[i].team_id === 40) {
                        liverpoolWin = forLoopArray[i].all.win
@@ -1290,10 +1290,10 @@ class Table extends Component {
                var bournemouthTie;
 
                // running the for loop here. 
-               var forLoopArray = res.data.api.standings[0];
+            //    var forLoopArray = res.data.api.standings[0];
                console.log(forLoopArray);
 
-               for (var i = 0; i < forLoopArray.length; i++) {
+               for (let i = 0; i < forLoopArray.length; i++) {
 
                    if (forLoopArray[i].team_id === 47) {
                        tottenhamWin = forLoopArray[i].all.win
@@ -1328,8 +1328,7 @@ class Table extends Component {
                 var watfordTie;
 
                 // running the for loop here. 
-                var forLoopArray = res.data.api.standings[0]
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 42) {
                         arsenalWin = forLoopArray[i].all.win
@@ -1386,7 +1385,7 @@ class Table extends Component {
 
                 var TomPoints = 0;
 
-                for (var i = 0; i < tomDoubledScores.length; i++) {
+                for (let i = 0; i < tomDoubledScores.length; i++) {
                     TomPoints += tomDoubledScores[i];
                 }
                 // console.log(TomPoints);
@@ -1407,7 +1406,7 @@ class Table extends Component {
 
                 var PatrickPoints = 0;
 
-                for (var i = 0; i < patDoubledScores.length; i++) {
+                for (let i = 0; i < patDoubledScores.length; i++) {
                     PatrickPoints += patDoubledScores[i];
                 }
                 // console.log(PatrickPoints);
@@ -1428,7 +1427,7 @@ class Table extends Component {
 
                 var jamesPoints = 0;
 
-                for (var i = 0; i < jamesDoubledScores.length; i++) {
+                for (let i = 0; i < jamesDoubledScores.length; i++) {
                     jamesPoints += jamesDoubledScores[i];
                 }
                 // console.log(jamesPoints);
@@ -1449,7 +1448,7 @@ class Table extends Component {
 
                 var NeptunePoints = 0;
 
-                for (var i = 0; i < NeptuneDoubledScores.length; i++) {
+                for (let i = 0; i < NeptuneDoubledScores.length; i++) {
                     NeptunePoints += NeptuneDoubledScores[i];
                 }
                 // console.log(NeptunePoints);
@@ -1470,7 +1469,7 @@ class Table extends Component {
 
                 var DJPoints = 0;
 
-                for (var i = 0; i < DJDoubledScores.length; i++) {
+                for (let i = 0; i < DJDoubledScores.length; i++) {
                     DJPoints += DJDoubledScores[i];
                 }
                 // console.log(DJPoints);
@@ -1491,7 +1490,7 @@ class Table extends Component {
 
                 var GoosePoints = 0;
 
-                for (var i = 0; i < GooseDoubledScores.length; i++) {
+                for (let i = 0; i < GooseDoubledScores.length; i++) {
                     GoosePoints += GooseDoubledScores[i];
                 }
                 // console.log(GoosePoints);
@@ -1512,7 +1511,7 @@ class Table extends Component {
 
                 var AlPoints = 0;
 
-                for (var i = 0; i < AlDoubledScores.length; i++) {
+                for (let i = 0; i < AlDoubledScores.length; i++) {
                     AlPoints += AlDoubledScores[i];
                 }
                 // console.log(AlPoints);
@@ -1533,7 +1532,7 @@ class Table extends Component {
 
                 var JoePoints = 0;
 
-                for (var i = 0; i < JoeDoubledScores.length; i++) {
+                for (let i = 0; i < JoeDoubledScores.length; i++) {
                     JoePoints += JoeDoubledScores[i];
                 }
                 // console.log(JoePoints);
@@ -1554,7 +1553,7 @@ class Table extends Component {
 
                 var SteidsPoints = 0;
 
-                for (var i = 0; i < SteidsDoubledScores.length; i++) {
+                for (let i = 0; i < SteidsDoubledScores.length; i++) {
                     SteidsPoints += SteidsDoubledScores[i];
                 }
                 // console.log(SteidsPoints);
@@ -1575,7 +1574,7 @@ class Table extends Component {
 
                 var BenPoints = 0;
 
-                for (var i = 0; i < BenDoubledScores.length; i++) {
+                for (let i = 0; i < BenDoubledScores.length; i++) {
                     BenPoints += BenDoubledScores[i];
                 }
                 // console.log(BenPoints);

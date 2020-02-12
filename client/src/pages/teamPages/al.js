@@ -55,10 +55,9 @@ class al extends React.Component {
                 var wingsWins;
                 var wingsOTLS;
                 var wingsTotal;
-                var allNHL;
 
                 // Here is the lightning loop. 
-                for (var i = 0; i < atlanticResults.length; i++) {
+                for (let i = 0; i < atlanticResults.length; i++) {
                     // lightning
                     if (atlanticResults[i].team.id === 14) {
                         lightningWins = atlanticResults[i].leagueRecord.wins;
@@ -99,9 +98,7 @@ class al extends React.Component {
                 wingsTotal = (wingsWins * 2) + wingsOTLS;
                 console.log(wingsTotal);
 
-                allNHL = lightningTotal + bruinsTotal + wingsTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: lightningTotal + bruinsTotal + wingsTotal });
                 this.setState({ lightning: lightningTotal });
                 this.setState({ bruins: bruinsTotal });
                 this.setState({ wings: wingsTotal });
@@ -125,7 +122,7 @@ class al extends React.Component {
                var forLoopArray = res.data.api.standings[0];
                console.log(forLoopArray);
 
-               for (var i = 0; i < forLoopArray.length; i++) {
+               for (let i = 0; i < forLoopArray.length; i++) {
 
                    if (forLoopArray[i].team_id === 45) {
                        evertonWin = forLoopArray[i].all.win
@@ -187,7 +184,7 @@ class al extends React.Component {
 
                 var AlPoints = 0;
 
-                for (var i = 0; i < AlDoubledScores.length; i++) {
+                for (let i = 0; i < AlDoubledScores.length; i++) {
                     AlPoints += AlDoubledScores[i];
                 }
                 console.log(AlPoints);

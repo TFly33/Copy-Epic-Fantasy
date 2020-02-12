@@ -52,10 +52,9 @@ class joe extends React.Component {
                 var oilersWins;
                 var oilersOTLS;
                 var oilersTotal;
-                var allNHL;
 
                 // Here is the blues loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
                     // blues
                     if (centralResults[i].team.id === 19) {
                         bluesWins = centralResults[i].leagueRecord.wins;
@@ -71,7 +70,7 @@ class joe extends React.Component {
                 console.log(bluesTotal);
 
                 // Here is the loop for the jackets
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // jackets
                     if (metroResults[i].team.id === 29) {
@@ -83,7 +82,7 @@ class joe extends React.Component {
                     }
                 }
 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
 
                     // oilers
                     if (pacificResults[i].team.id === 22) {
@@ -103,9 +102,7 @@ class joe extends React.Component {
                 oilersTotal = (oilersWins * 2) + oilersOTLS;
                 console.log(oilersTotal);
 
-                var allNHL = bluesTotal + jacketsTotal + oilersTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: bluesTotal + jacketsTotal + oilersTotal });
                 this.setState({ blues: bluesTotal });
                 this.setState({ jackets: jacketsTotal });
                 this.setState({ oilers: oilersTotal });
@@ -129,7 +126,7 @@ class joe extends React.Component {
                 var forLoopArray = res.data.api.standings[0];
                 console.log(forLoopArray);
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 40) {
                         liverpoolWin = forLoopArray[i].all.win

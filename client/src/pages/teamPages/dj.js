@@ -54,10 +54,9 @@ class dj extends React.Component {
                 var coyotesWins;
                 var coyotesOTLS;
                 var coyotesTotal;
-                var allNHL;
 
                 // Here is the jets loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
                     // jets
                     if (centralResults[i].team.id === 52) {
                         jetsWins = centralResults[i].leagueRecord.wins;
@@ -72,7 +71,7 @@ class dj extends React.Component {
                 jetsTotal = (jetsWins * 2) + jetsOTLS;
                 console.log(jetsTotal);
 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
 
                     // coyotes
                     if (pacificResults[i].team.id === 53) {
@@ -84,7 +83,7 @@ class dj extends React.Component {
                     }
                 }
 
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // canes
                     if (metroResults[i].team.id === 12) {
@@ -104,9 +103,7 @@ class dj extends React.Component {
                 coyotesTotal = (coyotesWins * 2) + coyotesOTLS;
                 console.log(coyotesTotal);
 
-                var allNHL = jetsTotal + canesTotal + coyotesTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: jetsTotal + canesTotal + coyotesTotal });
                 this.setState({ jets: jetsTotal });
                 this.setState({ canes: canesTotal });
                 this.setState({ coyotes: coyotesTotal });
@@ -130,7 +127,7 @@ class dj extends React.Component {
                 var forLoopArray = res.data.api.standings[0];
                 console.log(forLoopArray);
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 62) {
                         sheffieldWin = forLoopArray[i].all.win
@@ -192,7 +189,7 @@ class dj extends React.Component {
 
                 var djPoints = 0;
 
-                for (var i = 0; i < djDoubledScores.length; i++) {
+                for (let i = 0; i < djDoubledScores.length; i++) {
                     djPoints += djDoubledScores[i];
                 }
                 console.log(djPoints);

@@ -53,7 +53,6 @@ class patrick extends React.Component {
                 var kingsWins;
                 var kingsOTLS;
                 var kingsTotal;
-                var allNHL;
 
                 // Here is the ducks/kings for loop. 
                 for (var i = 0; i < pacificResults.length; i++) {
@@ -80,7 +79,7 @@ class patrick extends React.Component {
                 console.log(ducksTotal)
 
                 // Here is the loop for the islanders
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // islanders
                     if (metroResults[i].team.id === 2) {
@@ -100,9 +99,7 @@ class patrick extends React.Component {
                 kingsTotal = (kingsWins * 2) + kingsOTLS;
                 console.log(kingsTotal);
 
-                var allNHL = islandersTotal + ducksTotal + kingsTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: islandersTotal + ducksTotal + kingsTotal });
                 this.setState({ islanders: islandersTotal });
                 this.setState({ ducks: ducksTotal });
                 this.setState({ kings: kingsTotal });
@@ -127,7 +124,7 @@ class patrick extends React.Component {
                 
                 console.log (forLoopArray)
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 50) {
                         manCityWin = forLoopArray[i].all.win
@@ -188,7 +185,7 @@ class patrick extends React.Component {
 
                 var PatrickPoints = 0;
 
-                for (var i = 0; i < PatrickDoubledScores.length; i++) {
+                for (let i = 0; i < PatrickDoubledScores.length; i++) {
                     PatrickPoints += PatrickDoubledScores[i];
                 }
                 console.log(PatrickPoints);

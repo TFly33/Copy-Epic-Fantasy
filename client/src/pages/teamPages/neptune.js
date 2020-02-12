@@ -55,7 +55,6 @@ class neptune extends React.Component {
                 var devilsWins;
                 var devilsOTLS;
                 var devilsTotal;
-                var allNHL;
 
                 // Here is the sharks loop. 
                 for (var i = 0; i < pacificResults.length; i++) {
@@ -75,7 +74,7 @@ class neptune extends React.Component {
                 console.log(sharksTotal);
 
                 // Here is the loop for the sharks
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // devils
                     if (metroResults[i].team.id === 1) {
@@ -104,9 +103,7 @@ class neptune extends React.Component {
                 devilsTotal = (devilsWins * 2) + devilsOTLS;
                 console.log(devilsTotal);
 
-                var allNHL = sharksTotal + rangersTotal + devilsTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: sharksTotal + rangersTotal + devilsTotal });
                 this.setState({ sharks: sharksTotal });
                 this.setState({ rangers: rangersTotal });
                 this.setState({ devils: devilsTotal });
@@ -130,7 +127,7 @@ class neptune extends React.Component {
                 var forLoopArray = res.data.api.standings[0];
                 console.log(forLoopArray);
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 46) {
                         leicesterWin = forLoopArray[i].all.win
@@ -192,7 +189,7 @@ class neptune extends React.Component {
 
                 var NeptunePoints = 0;
 
-                for (var i = 0; i < NeptuneDoubledScores.length; i++) {
+                for (let i = 0; i < NeptuneDoubledScores.length; i++) {
                     NeptunePoints += NeptuneDoubledScores[i];
                 }
                 console.log(NeptunePoints);

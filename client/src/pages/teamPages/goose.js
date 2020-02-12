@@ -54,10 +54,9 @@ class goose extends React.Component {
                 var canadiansWins;
                 var canadiansOTLS;
                 var canadiansTotal;
-                var allNHL;
 
                 // Here is the preds and Stars loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
                     // preds
                     if (centralResults[i].team.id === 18) {
                         predsWins = centralResults[i].leagueRecord.wins;
@@ -81,7 +80,7 @@ class goose extends React.Component {
                 predsTotal = (predsWins * 2) + predsOTLS;
                 console.log(predsTotal);
 
-                for (var i = 0; i < atlanticResults.length; i++) {
+                for (let i = 0; i < atlanticResults.length; i++) {
 
                     // canadians
                     if (atlanticResults[i].team.id === 8) {
@@ -101,9 +100,7 @@ class goose extends React.Component {
                 canadiansTotal = (canadiansWins * 2) + canadiansOTLS;
                 console.log(canadiansTotal);
 
-                var allNHL = predsTotal + starsTotal + canadiansTotal
-
-                this.setState({ totalNHL: allNHL });
+                this.setState({ totalNHL: predsTotal + starsTotal + canadiansTotal });
                 this.setState({ preds: predsTotal });
                 this.setState({ stars: starsTotal });
                 this.setState({ canadians: canadiansTotal });
@@ -127,7 +124,7 @@ class goose extends React.Component {
                 var forLoopArray = res.data.api.standings[0];
                 console.log(forLoopArray);
 
-                for (var i = 0; i < forLoopArray.length; i++) {
+                for (let i = 0; i < forLoopArray.length; i++) {
 
                     if (forLoopArray[i].team_id === 33) {
                         manuWin = forLoopArray[i].all.win
@@ -189,7 +186,7 @@ class goose extends React.Component {
 
                 var GoosePoints = 0;
 
-                for (var i = 0; i < GooseDoubledScores.length; i++) {
+                for (let i = 0; i < GooseDoubledScores.length; i++) {
                     GoosePoints += GooseDoubledScores[i];
                 }
                 console.log(GoosePoints);
