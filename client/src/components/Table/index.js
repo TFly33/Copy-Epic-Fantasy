@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { MDBDataTable } from 'mdbreact';
-import "./Table.css";
 import API from "../../utils/API";
 // import { al, totalNHL, } from "../../pages/teamPages/al";
 
@@ -303,7 +302,7 @@ class Table extends Component {
     getScoresNHL = () => {
         API.getScoresNHL()
             .then(res => {
-                // NHL FOR TOM 
+            //    These are the overall divisions. Accessed via API call. 
                 // This is the Metro Division
                 var metroResults = res.data.records[0].teamRecords;
                 // Atlantic Division
@@ -313,6 +312,7 @@ class Table extends Component {
                 // Pacific
                 var pacificResults = res.data.records[3].teamRecords;
 
+                // Tom's NHL Starting here. 
                 console.log(pacificResults)
                 var knightsWins;
                 var knightsOTLS;
@@ -323,10 +323,9 @@ class Table extends Component {
                 var canucksWins;
                 var canucksOTLS;
                 var canucksTotal;
-                var totalNHL;
 
                 // Here is the Blackhawks for loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
 
                     if (centralResults[i].team.id === 16) {
                         blackhawksWins = centralResults[i].leagueRecord.wins;
@@ -341,7 +340,7 @@ class Table extends Component {
                 // console.log(blackhawksTotal)
 
                 // Here is the loop for the Canucks and Knights, who are in the same division. 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
 
                     // Knights
                     if (pacificResults[i].team.id === 54) {
@@ -369,22 +368,10 @@ class Table extends Component {
                 canucksTotal = (canucksWins * 2) + canucksOTLS;
                 console.log(canucksTotal);
 
-                var allNHL = knightsTotal + canucksTotal + blackhawksTotal
-
-                this.setState({ tomNHL: allNHL });
+                this.setState({ tomNHL: knightsTotal + canucksTotal + blackhawksTotal });
                 this.setState({ knights: knightsTotal });
                 this.setState({ canucks: canucksTotal });
                 this.setState({ blackhawks: blackhawksTotal });
-
-                // start of Patrick NHL: 
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // Pacific
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(metroResults);
                 var islandersWins;
@@ -396,10 +383,9 @@ class Table extends Component {
                 var kingsWins;
                 var kingsOTLS;
                 var kingsTotal;
-                var allNHL;
 
                 // Here is the ducks/kings for loop. 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
                     // ducks
                     if (pacificResults[i].team.id === 24) {
                         ducksWins = pacificResults[i].leagueRecord.wins;
@@ -423,7 +409,7 @@ class Table extends Component {
                 console.log(ducksTotal)
 
                 // Here is the loop for the islanders
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // islanders
                     if (metroResults[i].team.id === 2) {
@@ -443,23 +429,12 @@ class Table extends Component {
                 kingsTotal = (kingsWins * 2) + kingsOTLS;
                 console.log(kingsTotal);
 
-                var allNHL = islandersTotal + ducksTotal + kingsTotal
-
-                this.setState({ patNHL: allNHL });
+                this.setState({ patNHL: islandersTotal + ducksTotal + kingsTotal });
                 this.setState({ islanders: islandersTotal });
                 this.setState({ ducks: ducksTotal });
                 this.setState({ kings: kingsTotal });
 
                 // Start of James NHL here
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // central
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(centralResults);
                 var flamesWins;
@@ -471,10 +446,10 @@ class Table extends Component {
                 var wildWins;
                 var wildOTLS;
                 var wildTotal;
-                var allNHL;
+              
 
                 // Here is the flames loop. 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
                     // flames
                     if (pacificResults[i].team.id === 20) {
                         flamesWins = pacificResults[i].leagueRecord.wins;
@@ -490,7 +465,7 @@ class Table extends Component {
                 console.log(flamesTotal);
 
                 // Here is the loop for the pens
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // pens
                     if (metroResults[i].team.id === 5) {
@@ -502,7 +477,7 @@ class Table extends Component {
                     }
                 }
 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
 
                     // wild
                     if (centralResults[i].team.id === 30) {
@@ -522,23 +497,12 @@ class Table extends Component {
                 wildTotal = (wildWins * 2) + wildOTLS;
                 console.log(wildTotal);
 
-                var allNHL = flamesTotal + pensTotal + wildTotal
-
-                this.setState({ jamesNHL: allNHL });
+                this.setState({ jamesNHL: flamesTotal + pensTotal + wildTotal });
                 this.setState({ flames: flamesTotal });
                 this.setState({ pens: pensTotal });
                 this.setState({ wild: wildTotal });
 
                 //  starting Neptune NHL here
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // Pacific
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(metroResults);
                 var sharksWins;
@@ -550,10 +514,10 @@ class Table extends Component {
                 var devilsWins;
                 var devilsOTLS;
                 var devilsTotal;
-                var allNHL;
+               
 
                 // Here is the sharks loop. 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
                     // sharks
                     if (pacificResults[i].team.id === 28) {
                         sharksWins = pacificResults[i].leagueRecord.wins;
@@ -570,7 +534,7 @@ class Table extends Component {
                 console.log(sharksTotal);
 
                 // Here is the loop for the sharks
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // devils
                     if (metroResults[i].team.id === 1) {
@@ -599,23 +563,12 @@ class Table extends Component {
                 devilsTotal = (devilsWins * 2) + devilsOTLS;
                 console.log(devilsTotal);
 
-                var allNHL = sharksTotal + rangersTotal + devilsTotal
-
-                this.setState({ neptuneNHL: allNHL });
+                this.setState({ neptuneNHL: sharksTotal + rangersTotal + devilsTotal });
                 this.setState({ sharks: sharksTotal });
                 this.setState({ rangers: rangersTotal });
                 this.setState({ devils: devilsTotal });
 
                 // Starting DJ NHL Here 
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // central
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(metroResults);
 
@@ -628,10 +581,10 @@ class Table extends Component {
                 var coyotesWins;
                 var coyotesOTLS;
                 var coyotesTotal;
-                var allNHL;
+                
 
                 // Here is the jets loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
                     // jets
                     if (centralResults[i].team.id === 52) {
                         jetsWins = centralResults[i].leagueRecord.wins;
@@ -646,7 +599,7 @@ class Table extends Component {
                 jetsTotal = (jetsWins * 2) + jetsOTLS;
                 console.log(jetsTotal);
 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
 
                     // coyotes
                     if (pacificResults[i].team.id === 53) {
@@ -658,7 +611,7 @@ class Table extends Component {
                     }
                 }
 
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // canes
                     if (metroResults[i].team.id === 12) {
@@ -678,23 +631,12 @@ class Table extends Component {
                 coyotesTotal = (coyotesWins * 2) + coyotesOTLS;
                 console.log(coyotesTotal);
 
-                var allNHL = jetsTotal + canesTotal + coyotesTotal
-
-                this.setState({ djNHL: allNHL });
+                this.setState({ djNHL: jetsTotal + canesTotal + coyotesTotal });
                 this.setState({ jets: jetsTotal });
                 this.setState({ canes: canesTotal });
                 this.setState({ coyotes: coyotesTotal });
 
                 // starting Goose NHL here 
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // central
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(centralResults);
                 var predsWins;
@@ -706,10 +648,10 @@ class Table extends Component {
                 var canadiansWins;
                 var canadiansOTLS;
                 var canadiansTotal;
-                var allNHL;
+                
 
                 // Here is the preds and Stars loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
                     // preds
                     if (centralResults[i].team.id === 18) {
                         predsWins = centralResults[i].leagueRecord.wins;
@@ -733,7 +675,7 @@ class Table extends Component {
                 predsTotal = (predsWins * 2) + predsOTLS;
                 console.log(predsTotal);
 
-                for (var i = 0; i < atlanticResults.length; i++) {
+                for (let i = 0; i < atlanticResults.length; i++) {
 
                     // canadians
                     if (atlanticResults[i].team.id === 8) {
@@ -753,23 +695,12 @@ class Table extends Component {
                 canadiansTotal = (canadiansWins * 2) + canadiansOTLS;
                 console.log(canadiansTotal);
 
-                var allNHL = predsTotal + starsTotal + canadiansTotal
-
-                this.setState({ gooseNHL: allNHL });
+                this.setState({ gooseNHL: predsTotal + starsTotal + canadiansTotal });
                 this.setState({ preds: predsTotal });
                 this.setState({ stars: starsTotal });
                 this.setState({ canadians: canadiansTotal });
 
                 // starting Al NHL here 
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // central
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(atlanticResults);
 
@@ -782,10 +713,10 @@ class Table extends Component {
                 var wingsWins;
                 var wingsOTLS;
                 var wingsTotal;
-                var allNHL;
+               
 
                 // Here is the lightning loop. 
-                for (var i = 0; i < atlanticResults.length; i++) {
+                for (let i = 0; i < atlanticResults.length; i++) {
                     // lightning
                     if (atlanticResults[i].team.id === 14) {
                         lightningWins = atlanticResults[i].leagueRecord.wins;
@@ -826,23 +757,12 @@ class Table extends Component {
                 wingsTotal = (wingsWins * 2) + wingsOTLS;
                 console.log(wingsTotal);
 
-                var allNHL = lightningTotal + bruinsTotal + wingsTotal
-
-                this.setState({ alNHL: allNHL });
+                this.setState({ alNHL: lightningTotal + bruinsTotal + wingsTotal });
                 this.setState({ lightning: lightningTotal });
                 this.setState({ bruins: bruinsTotal });
                 this.setState({ wings: wingsTotal });
 
-                // starting Joe NHL here 
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // central
-                var pacificResults = res.data.records[3].teamRecords;
+                // starting Joe NHL here
 
                 console.log(metroResults);
                 var bluesWins;
@@ -854,10 +774,10 @@ class Table extends Component {
                 var oilersWins;
                 var oilersOTLS;
                 var oilersTotal;
-                var allNHL;
+               
 
                 // Here is the blues loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
                     // blues
                     if (centralResults[i].team.id === 19) {
                         bluesWins = centralResults[i].leagueRecord.wins;
@@ -873,7 +793,7 @@ class Table extends Component {
                 console.log(bluesTotal);
 
                 // Here is the loop for the jackets
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // jackets
                     if (metroResults[i].team.id === 29) {
@@ -885,7 +805,7 @@ class Table extends Component {
                     }
                 }
 
-                for (var i = 0; i < pacificResults.length; i++) {
+                for (let i = 0; i < pacificResults.length; i++) {
 
                     // oilers
                     if (pacificResults[i].team.id === 22) {
@@ -905,23 +825,12 @@ class Table extends Component {
                 oilersTotal = (oilersWins * 2) + oilersOTLS;
                 console.log(oilersTotal);
 
-                var allNHL = bluesTotal + jacketsTotal + oilersTotal
-
-                this.setState({ joeNHL: allNHL });
+                this.setState({ joeNHL: bluesTotal + jacketsTotal + oilersTotal });
                 this.setState({ blues: bluesTotal });
                 this.setState({ jackets: jacketsTotal });
                 this.setState({ oilers: oilersTotal });
 
                 // starting Steids NHL here
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // Pacific
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(atlanticResults)
                 var capsWins;
@@ -933,10 +842,10 @@ class Table extends Component {
                 var sabresWins;
                 var sabresOTLS;
                 var sabresTotal;
-                var allNHL;
+            
 
                 // Here is the panthers for loop. 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
 
                     if (atlanticResults[i].team.id === 13) {
                         panthersWins = atlanticResults[i].leagueRecord.wins;
@@ -960,7 +869,7 @@ class Table extends Component {
                 console.log(panthersTotal)
 
                 // Here is the loop for the caps
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // caps
                     if (metroResults[i].team.id === 15) {
@@ -980,23 +889,12 @@ class Table extends Component {
                 sabresTotal = (sabresWins * 2) + sabresOTLS;
                 console.log(sabresTotal);
 
-                var allNHL = capsTotal + sabresTotal + panthersTotal
-
-                this.setState({ steidsNHL: allNHL });
+                this.setState({ steidsNHL: capsTotal + sabresTotal + panthersTotal });
                 this.setState({ caps: capsTotal });
                 this.setState({ sabres: sabresTotal });
                 this.setState({ panthers: panthersTotal });
 
                 // starting Ben NHL here
-
-                // This is the Metro Division
-                var metroResults = res.data.records[0].teamRecords;
-                // Atlantic Division
-                var atlanticResults = res.data.records[1].teamRecords;
-                // Central Division
-                var centralResults = res.data.records[2].teamRecords;
-                // central
-                var pacificResults = res.data.records[3].teamRecords;
 
                 console.log(metroResults);
 
@@ -1009,10 +907,10 @@ class Table extends Component {
                 var flyersWins;
                 var flyersOTLS;
                 var flyersTotal;
-                var allNHL;
+                
 
                 // Here is the leafs loop. 
-                for (var i = 0; i < atlanticResults.length; i++) {
+                for (let i = 0; i < atlanticResults.length; i++) {
                     // leafs
                     if (atlanticResults[i].team.id === 10) {
                         leafsWins = atlanticResults[i].leagueRecord.wins;
@@ -1027,7 +925,7 @@ class Table extends Component {
                 leafsTotal = (leafsWins * 2) + leafsOTLS;
                 console.log(leafsTotal);
 
-                for (var i = 0; i < metroResults.length; i++) {
+                for (let i = 0; i < metroResults.length; i++) {
 
                     // flyers
                     if (metroResults[i].team.id === 4) {
@@ -1039,7 +937,7 @@ class Table extends Component {
                     }
                 }
 
-                for (var i = 0; i < centralResults.length; i++) {
+                for (let i = 0; i < centralResults.length; i++) {
 
                     // avalanche
                     if (centralResults[i].team.id === 21) {
@@ -1059,9 +957,7 @@ class Table extends Component {
                 flyersTotal = (flyersWins * 2) + flyersOTLS;
                 console.log(flyersTotal);
 
-                var allNHL = leafsTotal + avalancheTotal + flyersTotal
-
-                this.setState({ benNHL: allNHL });
+                this.setState({ benNHL: leafsTotal + avalancheTotal + flyersTotal });
                 this.setState({ leafs: leafsTotal });
                 this.setState({ avalanche: avalancheTotal });
                 this.setState({ flyers: flyersTotal });
@@ -1699,132 +1595,6 @@ class Table extends Component {
             <div>
                 {this.datatablePage()}
             </div>
-            // THIS IS THE OLD TABLE IF I END UP NEEDING IT BACK. 
-            // <div class="container">
-            //     <table class="table table-bordered table-striped table-hover">
-            //         <thead class="thead-dark">
-            //             <tr>
-            //                 <th scope="col">Team</th>
-            //                 <th scope="col">EPL</th>
-            //                 <th scope="col">NFL</th>
-            //                 <th scope="col">NHL</th>
-            //                 <th scope="col">NBA</th>
-            //                 <th scope="col">MLB</th>
-            //                 <th scope="col">Total Points</th>
-            //             </tr>
-            //         </thead>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Tommy</th>
-            //                 <th scope="col">{this.state.tomEPL}</th>
-            //                 <th scope="col">{this.state.tomNFL}</th>
-            //                 <th scope="col">{this.state.tomNHL}</th>
-            //                 <th scope="col">{this.state.tomNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.tomTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Patrick</th>
-            //                 <th scope="col">{this.state.patEPL}</th>
-            //                 <th scope="col">{this.state.patNFL}</th>
-            //                 <th scope="col">{this.state.patNHL}</th>
-            //                 <th scope="col">{this.state.patrickNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.patTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">James</th>
-            //                 <th scope="col">{this.state.jamesEPL}</th>
-            //                 <th scope="col">{this.state.jamesNFL}</th>
-            //                 <th scope="col">{this.state.jamesNHL}</th>
-            //                 <th scope="col">{this.state.jamesNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.jamesTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Neptune</th>
-            //                 <th scope="col">{this.state.neptuneEPL}</th>
-            //                 <th scope="col">{this.state.neptuneNFL}</th>
-            //                 <th scope="col">{this.state.neptuneNHL}</th>
-            //                 <th scope="col">{this.state.neptuneNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.neptuneTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">DJ</th>
-            //                 <th scope="col">{this.state.djEPL}</th>
-            //                 <th scope="col">{this.state.djNFL}</th>
-            //                 <th scope="col">{this.state.djNHL}</th>
-            //                 <th scope="col">{this.state.djNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.djTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Goose</th>
-            //                 <th scope="col">{this.state.gooseEPL}</th>
-            //                 <th scope="col">{this.state.gooseNFL}</th>
-            //                 <th scope="col">{this.state.gooseNHL}</th>
-            //                 <th scope="col">{this.state.gooseNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.gooseTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Al</th>
-            //                 <th scope="col">{this.state.alEPL}</th>
-            //                 <th scope="col">{this.state.alNFL}</th>
-            //                 <th scope="col">{this.state.alNHL}</th>
-            //                 <th scope="col">{this.state.alNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.alTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Joe</th>
-            //                 <th scope="col">{this.state.joeEPL}</th>
-            //                 <th scope="col">{this.state.joeNFL}</th>
-            //                 <th scope="col">{this.state.joeNHL}</th>
-            //                 <th scope="col">{this.state.joeNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.joeTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Steids</th>
-            //                 <th scope="col">{this.state.steidsEPL}</th>
-            //                 <th scope="col">{this.state.steidsNFL}</th>
-            //                 <th scope="col">{this.state.steidsNHL}</th>
-            //                 <th scope="col">{this.state.steidsNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.steidsTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //         <tbody>
-            //             <tr>
-            //                 <th scope="col">Ben</th>
-            //                 <th scope="col">{this.state.benEPL}</th>
-            //                 <th scope="col">{this.state.benNFL}</th>
-            //                 <th scope="col">{this.state.benNHL}</th>
-            //                 <th scope="col">{this.state.benNBA}</th>
-            //                 <th scope="col">0</th>
-            //                 <th scope="col">{this.state.benTotal}</th>
-            //             </tr>
-            //         </tbody>
-            //     </table>
-            // </div>
         )
     }
 }
